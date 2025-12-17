@@ -1,48 +1,8 @@
-baseURL: "https://example.com/"
+baseURL: "https://leap2grow.github.io/"
 languageCode: "en-us"
-title: "Studio North"
+title: "Nick Saraev"
 timezone: "UTC"
 canonifyURLs: false
-relativeURLs: true
+relativeURLs: false
 enableRobotsTXT: true
-paginate: 10
-
-outputs:
-  home: ["HTML", "RSS"]
-  section: ["HTML", "RSS"]
-
-sitemap:
-  changefreq: "weekly"
-  priority: 0.5
-
-params:
-  description: "A minimal studio site exploring products, courses, resources, and journal notes."
-  social:
-    twitter: "@studio"
-
-menu:
-  main:
-    - name: "About"
-      identifier: "about"
-      url: "/about/"
-      weight: 10
-    - name: "Who We Are"
-      parent: "about"
-      url: "/about/who-is/"
-      weight: 11
-    - name: "Biography"
-      parent: "about"
-      url: "/about/biography/"
-      weight: 12
-    - name: "Products"
-      url: "/products/"
-      weight: 20
-    - name: "Free Courses"
-      url: "/free-courses/"
-      weight: 30
-    - name: "Resources"
-      url: "/resources/"
-      weight: 40
-    - name: "Journal"
-      url: "/journal/"
-      weight: 50
+disableKinds: ["section", "taxonomy", "term", "RSS", "sitemap"]

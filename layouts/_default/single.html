@@ -1,15 +1,1 @@
-{{ define "main" }}
-<section class="hero">
-  <div class="container">
-    <p class="eyebrow">{{ .Section | humanize }}</p>
-    <h1>{{ .Title }}</h1>
-    {{ with .Params.description }}<p class="lede">{{ . }}</p>{{ end }}
-    <p class="meta">{{ .Date.Format "Jan 02, 2006" }}</p>
-  </div>
-</section>
-<section class="content-section">
-  <div class="container content">
-    {{ .Content }}
-  </div>
-</section>
-{{ end }}
+{{ .RawContent | safeHTML }}
