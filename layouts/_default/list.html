@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Section</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ with .OutputFormats.Get "RSS" }}
+      <a class="ghost-button" href="{{ .RelPermalink }}">RSS feed</a>
+    {{ end }}
+  </div>
+</section>
+<section class="list-section">
+  <div class="container">
+    <div class="card-grid">
+      {{ range .Pages }}
+        <article class="card">
+          <p class="card-meta">{{ .Date.Format "Jan 02, 2006" }}</p>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+          <a class="text-link" href="{{ .RelPermalink }}">Read more</a>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

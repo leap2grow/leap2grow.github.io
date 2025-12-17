@@ -1,0 +1,27 @@
+<header class="site-header" data-menu-root data-menu-open="false">
+  <div class="container">
+    <a class="site-title" href="/">{{ .Site.Title }}</a>
+    <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+      <span class="nav-toggle-label">Menu</span>
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+    </button>
+    <nav id="primary-nav" class="site-nav" aria-label="Primary">
+      <ul class="nav-list">
+        {{ range .Site.Menus.main }}
+          {{ if not .Parent }}
+            <li class="nav-item {{ if .HasChildren }}has-children{{ end }}">
+              <a class="nav-link" href="{{ .URL }}" {{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}aria-current="page"{{ end }}>{{ .Name }}</a>
+              {{ if .HasChildren }}
+                <ul class="subnav" aria-label="{{ .Name }}">
+                  {{ range .Children }}
+                    <li><a class="subnav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
